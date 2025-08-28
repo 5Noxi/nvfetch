@@ -1,4 +1,4 @@
-# NVFetch - HW/OS Overview
+# NVFetch
 
 Used to be my personal `neofetch`/`fastfetch` replacement with more details. Some arguments will probably also get added like `ids`, so it doesn't display the serial numbers and miscellaneous HWIDs by default. It currently gets most of the information using the [`Get-CimInstance`](https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance?view=powershell-7.5) cmdlet and `nvidia-smi` ([*](https://discord.com/channels/836870260715028511/1375059420970487838/1375059629255692370)) for NVIDIA GPUs. Use:
 ```ps
