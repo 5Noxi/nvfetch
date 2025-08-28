@@ -6,10 +6,11 @@ nvidia-smi -q
 ```
 to get a list with information. `win32cimv2.txt` shows class names in the `root\CIMV2` namespace, filtered with `Win32*`:
 
+
 Example output:
+![output](https://github.com/5Noxi/nvfetch/blob/main/output.png?raw=true)
 
-
-<ins>`nvfetch` displays:</ins>
+## `nvfetch` displays:
 - OS
   - `Win32_OperatingSystem` - `Caption`, `OSArchitecture`, `Version`
 - Time Zone
