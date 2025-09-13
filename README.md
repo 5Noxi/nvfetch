@@ -10,42 +10,24 @@ to get a list with information. `win32cimv2.txt` shows class names in the `root\
 Example output:
 ![output](https://github.com/5Noxi/nvfetch/blob/main/output.png?raw=true)
 
-## `nvfetch` displays:
-- OS
-  - `Win32_OperatingSystem` - `Caption`, `OSArchitecture`, `Version`
-- Time Zone
-  - `Get-TimeZone` - `DisplayName`
-- Uptime
-  - `Win32_OperatingSystem` - `LastBootUpTime`
-- Display
-  - Name, resolution, refresh rate, size (inch), external/internal
-  - `Win32_VideoController`, `WmiMonitorID`, `WmiMonitorBasicDisplayParams`, `WmiMonitorConnectionParams`
-- BIOS
-  - `Win32_BIOS` - `Manufacturer`, `SMBIOSBIOSVersion`, `ReleaseDate`
-- Motherboard
-  - `Win32_BaseBoard` - `Product`, `Manufacturer`
-- CPU
-  - `Win32_Processor` - `Name`, `SocketDesignation`, `MaxClockSpeed`
-- GPU
-  - If `nvidia-smi` is present (`gc nvidia-smi`)
-     - Name, core clock, memory clock, VRAM, BPP, performance state (`States range from P0 (maximum performance) to P12 (minimum performance)`)
-     - `--query-gpu=name,memory.total,memory.used,memory.free,pstate,clocks.mem,clocks.gr --format=csv,noheader,nounits`
-  - If `nvidia-smi` isn't present (AMD)
-     - `Win32_VideoController` - `Name`, `Caption`, `CurrentBitsPerPixel`
-     - Reads VRAM size  from class path (`qwMemorySize`)
-- RAM
-  - `Win32_PhysicalMemory` - `Capacity`, `ConfiguredClockSpeed`, `Manufacturer`
-- Drive
-  - `Win32_DiskDrive` & `Win32_LogicalDisk` - Uses `drive0` & `C:\`, `Size`, `FreeSpace`, `FileSystem`
-- Network
-  - `Win32_NetworkAdapterConfiguration` - `Description`, `IPAddress`, `DHCPEnabled`
-- HWIDs
-  - UUID - `Win32_ComputerSystemProduct`, `UUID`
-  - Motherboard SN - `Win32_BaseBoard`, `SerialNumber`
-  - CPU ID - `Win32_Processor`, `ProcessorId`
-  - RAM SNs - `Win32_PhysicalMemory`, `SerialNumber`
-  - Drive0 SN - `Win32_DiskDrive`/`Win32_PhysicalMedia`, `SerialNumber`
-  - GPU UUID - `nvidia-smi`, `--query-gpu=uuid`
+## `nvfetch` displays
+
+| Category    | Class / Command | Details |
+|-------------|--------------------------|----------------------|
+| **OS**      | `Win32_OperatingSystem` | `Caption`, `OSArchitecture`, `Version` |
+| **Time Zone** | `Get-TimeZone` | `DisplayName` |
+| **Uptime**  | `Win32_OperatingSystem` | `LastBootUpTime` |
+| **Display** | `Win32_VideoController`<br>`WmiMonitorID`<br>`WmiMonitorBasicDisplayParams`<br>`WmiMonitorConnectionParams` | Name, resolution, refresh rate, size (inch), external/internal |
+| **BIOS**    | `Win32_BIOS` | `Manufacturer`, `SMBIOSBIOSVersion`, `ReleaseDate` |
+| **Motherboard** | `Win32_BaseBoard` | `Product`, `Manufacturer` |
+| **CPU**     | `Win32_Processor` | `Name`, `SocketDesignation`, `MaxClockSpeed` |
+| **GPU (NVIDIA)** | `nvidia-smi` (if present)<br>`gc nvidia-smi` | Name, core clock, memory clock, VRAM, BPP, performance state (`P0`= max performance - `P12` = min performance)*<br><br>Command:<br>``--query-gpu=name,memory.total,memory.used,memory.free,pstate,clocks.mem,clocks.gr --format=csv,noheader,nounits`` |
+| **GPU (AMD)** | `Win32_VideoController` | `Name`, `Caption`, `CurrentBitsPerPixel`<br>VRAM size read from class path (`qwMemorySize`) |
+| **RAM**     | `Win32_PhysicalMemory` | `Capacity`, `ConfiguredClockSpeed`, `Manufacturer` |
+| **Drive**   | `Win32_DiskDrive` & `Win32_LogicalDisk` | Uses `drive0` & `C:\`<br>`Size`, `FreeSpace`, `FileSystem` |
+| **Network** | `Win32_NetworkAdapterConfiguration` | `Description`, `IPAddress`, `DHCPEnabled` |
+| **HWIDs**   | `Win32_ComputerSystemProduct` - UUID<br>`Win32_BaseBoard` - Motherboard SN<br>`Win32_Processor` - CPU ID<br>`Win32_PhysicalMemory` - RAM SNs<br>`Win32_DiskDrive` / `Win32_PhysicalMedia` - Drive0 SN<br>`nvidia-smi` - GPU UUID<br><br>Command: `--query-gpu=uuid` | Unique identifiers for system components. |
+
 
 ## Usage:
 Download `NVFetch.ps1` and leave it in your `Downloads` folder. Run `CL.ps1` and you're done. Open a new terminal and `nvfetch` should show the system information. A valid argument is the color name, default is `Blue`. It changes the color of the ASCII logo. Change it by simply adding a valid color name:
