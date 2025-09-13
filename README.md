@@ -58,10 +58,7 @@ nvfetch red
 Valid colors: `Black`, `Blue`, `Cyan`, `DarkBlue`, `DarkCyan`, `DarkGray`, `DarkGreen`, `DarkMagenta`, `DarkRed`, `DarkYellow`, `Gray`, `Green`, `Magenta`, `Red`, `White`, `Yellow`.
 
 <ins>References:</ins>
-> https://docs.nvidia.com/deploy/nvidia-smi/index.html
-> 
-> https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance?view=powershell-7.5
-> 
-> https://github.com/fastfetch-cli/fastfetch
-> 
-> https://github.com/dylanaraps/neofetch
+> https://docs.nvidia.com/deploy/nvidia-smi/index.html  
+> https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance?view=powershell-7.5  
+> https://github.com/fastfetch-cli/fastfetch  
+> https://github.com/dylanaraps/neofetch  
