@@ -8,7 +8,7 @@ to get a list with information. `win32cimv2.txt` shows class names in the `root\
 
 
 Example output:
-![output](https://github.com/5Noxi/nvfetch/blob/main/output.png?raw=true)
+![](https://github.com/5Noxi/nvfetch/blob/main/images/output.png?raw=true)
 
 ## `nvfetch` displays
 
